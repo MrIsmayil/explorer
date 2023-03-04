@@ -21,7 +21,7 @@ configs.keys().forEach(k => {
   c.type = 'mainnet'
 })
 
-let testnetConfigs = require.context('../../chains/testnet', false, /\.json$/)
+const testnetConfigs = require.context('../../chains/testnet', false, /\.json$/)
 
 testnetConfigs.keys().forEach(k => {
   const c = configs(k)
