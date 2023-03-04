@@ -16,14 +16,16 @@ if (isTestnet()) {
   configs = require.context('../../chains/testnet', false, /\.json$/)
 }
 
-configs.forEach(config => {
-  config.type = 'mainnet'
+configs.keys().forEach(k => {
+  const c = configs(k)
+  c.type = 'mainnet'
 })
 
 let testnetConfigs = require.context('../../chains/testnet', false, /\.json$/)
 
-testnetConfigs.forEach(config => {
-  config.type = 'testnet'
+testnetConfigs.keys().forEach(k => {
+  const c = configs(k)
+  c.type = 'testnet'
 })
 
 configs = [...configs, ...testnetConfigs]
