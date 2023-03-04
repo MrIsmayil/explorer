@@ -12,6 +12,7 @@ import { toHex } from '@cosmjs/encoding'
 let chains = {}
 const coingecko = {}
 let configs = require.context('../../chains/mainnet', false, /\.json$/)
+let testnetConfigs = require.context('../../chains/testnet', false, /\.json$/)
 if (isTestnet()) {
   configs = require.context('../../chains/testnet', false, /\.json$/)
 }
@@ -20,8 +21,6 @@ configs.keys().forEach(k => {
   const c = configs(k)
   c.type = 'mainnet'
 })
-
-const testnetConfigs = require.context('../../chains/testnet', false, /\.json$/)
 
 testnetConfigs.keys().forEach(k => {
   const c = configs(k)
