@@ -112,6 +112,11 @@
         <!--/ no result found -->
       </b-row>
     </div>
+
+    <h2 class="mb-3">
+      Testnets 🚀
+    </h2>
+
     <app-footer class="mb-1" />
   </div>
 </template>
