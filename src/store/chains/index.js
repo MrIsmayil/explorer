@@ -13,7 +13,7 @@ let chains = {}
 const coingecko = {}
 const mainnet = require.context('../../chains/mainnet/mainnet', false, /\.json$/)
 const testnet = require.context('../../chains/mainnet/testnet', false, /\.json$/)
-mainnet.concat(testnet)
+mainnet.push(testnet)
 let configs = mainnet
 
 // let configs = require.context('../../chains/mainnet', false, /\.json$/)
