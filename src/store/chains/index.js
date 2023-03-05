@@ -16,7 +16,6 @@ const testnet = require.context('../../chains/mainnet/testnet', false, /\.json$/
 console.log('mainnet', mainnet)
 console.log('testnet', testnet)
 
-
 mainnet.push(testnet)
 let configs = mainnet
 
