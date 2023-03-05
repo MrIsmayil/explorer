@@ -16,7 +16,7 @@ const testnet = require.context('../../chains/mainnet/testnet', false, /\.json$/
 console.log('mainnet', mainnet)
 console.log('testnet', testnet)
 
-mainnet.push(testnet)
+// mainnet.push(testnet)
 let configs = mainnet
 
 // let configs = require.context('../../chains/mainnet', false, /\.json$/)
@@ -49,7 +49,20 @@ configs.keys().forEach(k => {
   }
 })
 
+const testupdate = {}
+testnet.keys().forEach(k => {
+  const c = configs(k)
+  c.chain_name = String(c.chain_name).toLowerCase()
+  testupdate[c.chain_name] = c
+  if (Array.isArray(c.assets)) {
+    c.assets.forEach(x => {
+      if (x.coingecko_id && x.coingecko_id !== '') coingecko[x.coingecko_id] = String(x.symbol).toUpperCase()
+    })
+  }
+})
+
 chains = update
+testchains = testupdate
 localStorage.setItem('chains', JSON.stringify(update))
 const selected = chains.cosmos
 
@@ -59,6 +72,7 @@ export default {
   namespaced: true,
   state: {
     config: chains,
+    testconfig: testchains,
     selected,
     avatars: avatarcache ? JSON.parse(avatarcache) : {},
     height: 0,
