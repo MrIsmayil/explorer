@@ -11,23 +11,27 @@ import { toHex } from '@cosmjs/encoding'
 
 let chains = {}
 const coingecko = {}
-let configs = require.context('../../chains/mainnet', false, /\.json$/)
-const testnetConfigs = require.context('../../chains/testnet', false, /\.json$/)
+let mainnet = require.context('../../chains/mainnet/mainnet', false, /\.json$/)
+let testnet = require.context('../../chains/mainnet/testnet', false, /\.json$/)
+let configs = [...mainnet, ...testnet]
+
+// let configs = require.context('../../chains/mainnet', false, /\.json$/)
+// const testnetConfigs = require.context('../../chains/testnet', false, /\.json$/)
 if (isTestnet()) {
   configs = require.context('../../chains/testnet', false, /\.json$/)
 }
 
-configs.keys().forEach(k => {
-  const c = configs(k)
-  c.type = 'mainnet'
-})
+// configs.keys().forEach(k => {
+//   const c = configs(k)
+//   c.type = 'mainnet'
+// })
 
-testnetConfigs.keys().forEach(k => {
-  const c = configs(k)
-  c.type = 'testnet'
-})
+// testnetConfigs.keys().forEach(k => {
+//   const c = configs(k)
+//   c.type = 'testnet'
+// })
 
-configs = [...configs, ...testnetConfigs]
+// configs = [...configs, ...testnetConfigs]
 
 const update = {}
 configs.keys().forEach(k => {
