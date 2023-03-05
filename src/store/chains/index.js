@@ -12,8 +12,8 @@ import { toHex } from '@cosmjs/encoding'
 let chains = {}
 let testchains = {}
 const coingecko = {}
-const mainnet = require.context('../../chains/mainnet/mainnet', false, /\.json$/)
-const testnet = require.context('../../chains/mainnet/testnet', false, /\.json$/)
+let mainnet = require.context('../../chains/mainnet/mainnet', false, /\.json$/)
+let testnet = require.context('../../chains/mainnet/testnet', false, /\.json$/)
 console.log('mainnet', mainnet)
 console.log('testnet', testnet)
 
