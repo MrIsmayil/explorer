@@ -98,8 +98,8 @@
                 </b-card-text>
               </div>
             </b-card>
-          </router-link>        
-        </div>          
+          </router-link>
+        </div>
         </b-col>
 
         <!-- no result found -->
@@ -199,7 +199,7 @@
               </div>
             </b-card>
           </router-link>
-        </div>          
+        </div>
         </b-col>
 
         <!-- no result found -->
