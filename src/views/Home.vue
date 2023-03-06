@@ -263,7 +263,7 @@ export default {
           chainsArray.push(e)
         }
       })
-      return chainsArray
+      return chains
     },
     testnets() {
       const chains = this.$store.state.chains.config
@@ -273,7 +273,7 @@ export default {
           chainsArray.push(e)
         }
       })
-      return chainsArray
+      return chains
     },
     imgUrl() {
       if (store.state.appConfig.layout.skin === 'dark') {
