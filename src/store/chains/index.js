@@ -10,7 +10,7 @@ import { sha256 } from '@cosmjs/crypto'
 import { toHex } from '@cosmjs/encoding'
 
 let chains = {}
-let testchains = {}
+// let testchains = {}
 const coingecko = {}
 const mainnet = require.context('../../chains/mainnet/mainnet', false, /\.json$/)
 const testnet = require.context('../../chains/mainnet/testnet', false, /\.json$/)
@@ -50,11 +50,11 @@ configs.keys().forEach(k => {
   }
 })
 
-const testupdate = {}
+// const testupdate = {}
 testnet.keys().forEach(k => {
   const c = testnet(k)
   c.chain_name = String(c.chain_name).toLowerCase()
-  testupdate[c.chain_name] = c
+  update[c.chain_name] = c
   if (Array.isArray(c.assets)) {
     c.assets.forEach(x => {
       if (x.coingecko_id && x.coingecko_id !== '') coingecko[x.coingecko_id] = String(x.symbol).toUpperCase()
@@ -63,9 +63,9 @@ testnet.keys().forEach(k => {
 })
 
 console.log('update', update)
-console.log('testupdate', testupdate)
+// console.log('testupdate', testupdate)
 
-update = update.concat(testupdate)
+// update = update.concat(testupdate)
 
 chains = update
 // testchains = testupdate
