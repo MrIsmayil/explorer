@@ -19,7 +19,7 @@ console.log('testnet', testnet)
 
 // mainnet.push(testnet)
 let configs = mainnet
-let testconfigs = testnet
+// let testconfigs = testnet
 // let configs = require.context('../../chains/mainnet', false, /\.json$/)
 // const testnetConfigs = require.context('../../chains/testnet', false, /\.json$/)
 if (isTestnet()) {
@@ -51,8 +51,8 @@ configs.keys().forEach(k => {
 })
 
 const testupdate = {}
-testconfigs.keys().forEach(k => {
-  const c = testconfigs(k)
+testnet.keys().forEach(k => {
+  const c = testnet(k)
   c.chain_name = String(c.chain_name).toLowerCase()
   testupdate[c.chain_name] = c
   if (Array.isArray(c.assets)) {
