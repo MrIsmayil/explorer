@@ -247,7 +247,7 @@ export default {
   },
   data() {
     const chains = this.$store.state.chains.config
-    const testchains = this.$store.state.chains.testconfig
+    // const testchains = this.$store.state.chains.testconfig
     return {
       chains,
       downImg: require('@/assets/images/pages/under-maintenance.svg'),

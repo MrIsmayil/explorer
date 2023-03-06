@@ -62,10 +62,15 @@ testnet.keys().forEach(k => {
   }
 })
 
+console.log('update', update)
+console.log('testupdate', testupdate)
+
+update = update.concat(testupdate)
+
 chains = update
-testchains = testupdate
+// testchains = testupdate
 localStorage.setItem('chains', JSON.stringify(update))
-localStorage.setItem('testchains', JSON.stringify(testupdate))
+// localStorage.setItem('testchains', JSON.stringify(testupdate))
 const selected = chains.cosmos
 
 const avatarcache = localStorage.getItem('avatars')
@@ -74,7 +79,7 @@ export default {
   namespaced: true,
   state: {
     config: chains,
-    testconfig: testchains,
+    // testconfig: testchains,
     selected,
     avatars: avatarcache ? JSON.parse(avatarcache) : {},
     height: 0,
