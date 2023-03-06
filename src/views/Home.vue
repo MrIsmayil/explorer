@@ -129,7 +129,7 @@
           lg="4"
           xl="3"
         >
-        <router-link :to="data.chain_name" v-if="data.type=='testnet'">
+        <router-link :to="data.chain_name">
             <b-card
               v-if="data"
               class="earnings-card text-left"
@@ -258,22 +258,21 @@ export default {
     mainnets() {
       const chains = this.$store.state.chains.config
       const chainsArray = []
-
-      chains.forEach(chain => {
-        if (chain.type === 'mainnet') {
-          chainsArray.push(chain)
-        }
-      })
+      for (let chain in chains) {
+          if (chain.type === 'mainnet') {
+            chainsArray.push(chain)
+          }
+      }
       return chainsArray
     },
     testnets() {
       const chains = this.$store.state.chains.config
       const chainsArray = []
-      chains.forEach(chain => {
-        if (chain.type === 'testnet') {
-          chainsArray.push(chain)
-        }
-      })
+      for (let chain in chains) {
+          if (chain.type === 'testnet') {
+            chainsArray.push(chain)
+          }
+      }
       return chainsArray
     },
     imgUrl() {
