@@ -120,7 +120,7 @@
     <div>
       <b-row class="match-height">
         <b-col
-          v-for="(data,index) in testchains"
+          v-for="(data,index) in chains"
           :key="index"
           v-observe-visibility="(visible) => visibilityChanged(visible, data)"
           sm="6"

@@ -42,6 +42,7 @@ const update = {}
 configs.keys().forEach(k => {
   const c = configs(k)
   c.chain_name = String(c.chain_name).toLowerCase()
+  c.type = 'mainnet'
   update[c.chain_name] = c
   if (Array.isArray(c.assets)) {
     c.assets.forEach(x => {
@@ -54,6 +55,7 @@ configs.keys().forEach(k => {
 testnet.keys().forEach(k => {
   const c = testnet(k)
   c.chain_name = String(c.chain_name).toLowerCase()
+  c.type = 'testnet'
   update[c.chain_name] = c
   if (Array.isArray(c.assets)) {
     c.assets.forEach(x => {
