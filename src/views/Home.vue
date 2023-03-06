@@ -262,7 +262,7 @@ export default {
       chains.keys().forEach(k => {
         const c = chains(k)
               
-        if (c.type === 'mainnet')) {
+        if (c.type === 'mainnet') {
           chainsArray.push(c)          
         }
       })      
@@ -275,7 +275,7 @@ export default {
       chains.keys().forEach(k => {
         const c = chains(k)
               
-        if (c.type === 'testnet')) {
+        if (c.type === 'testnet') {
           chainsArray.push(c)          
         }
       })      
