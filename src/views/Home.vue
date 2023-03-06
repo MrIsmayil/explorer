@@ -22,7 +22,7 @@
     <div>
       <b-row class="match-height">
         <b-col
-          v-for="(data,index) in mainnets"
+          v-for="(data,index) in chains.filter(chain.type === 'mainnet')"
           :key="index"
           v-observe-visibility="(visible) => visibilityChanged(visible, data)"
           sm="6"
@@ -121,7 +121,7 @@
     <div>
       <b-row class="match-height">
         <b-col
-          v-for="(data,index) in testnets"
+          v-for="(data,index) in chains.filter(chain.type === 'testnet')"
           :key="index"
           v-observe-visibility="(visible) => visibilityChanged(visible, data)"
           sm="6"
@@ -255,14 +255,14 @@ export default {
     }
   },
   computed: {
-    mainnets() {
-      const chains = this.$store.state.chains.config
-      return chains.filter(chain => chain.type === 'mainnet')
-    },
-    testnets() {
-      const chains = this.$store.state.chains.config
-      return chains.filter(chain => chain.type === 'testnet')
-    },
+    // mainnets() {
+    //   const chains = this.$store.state.chains.config
+    //   return chains.filter(chain => chain.type === 'mainnet')
+    // },
+    // testnets() {
+    //   const chains = this.$store.state.chains.config
+    //   return chains.filter(chain => chain.type === 'testnet')
+    // },
     imgUrl() {
       if (store.state.appConfig.layout.skin === 'dark') {
         // eslint-disable-next-line vue/no-side-effects-in-computed-properties
