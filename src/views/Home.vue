@@ -256,11 +256,11 @@ export default {
   },
   computed: {
     mainnets() {
-      let chains = this.$store.state.chains.config
+      const chains = this.$store.state.chains.config
       return chains.filter(chain => chain.type === 'mainnet')
     },
     testnets() {
-      let chains = this.$store.state.chains.config
+      const chains = this.$store.state.chains.config
       return chains.filter(chain => chain.type === 'testnet')
     },
     imgUrl() {
