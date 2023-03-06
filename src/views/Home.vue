@@ -31,8 +31,7 @@
           xl="3"
         >
 
-        <div v-if="data.type == 'mainnet'">
-          <router-link :to="data.chain_name">
+        <router-link :to="data.chain_name" v-if="data.type == 'mainnet'">
             <b-card
               v-if="data"
               class="earnings-card text-left"
@@ -99,7 +98,6 @@
               </div>
             </b-card>
           </router-link>
-        </div>
         </b-col>
 
         <!-- no result found -->
@@ -131,8 +129,7 @@
           lg="4"
           xl="3"
         >
-        <div v-if="data.type=='testnet'">
-          <router-link :to="data.chain_name">
+        <router-link :to="data.chain_name" v-if="data.type=='testnet'">
             <b-card
               v-if="data"
               class="earnings-card text-left"
@@ -199,7 +196,6 @@
               </div>
             </b-card>
           </router-link>
-        </div>
         </b-col>
 
         <!-- no result found -->
