@@ -31,7 +31,7 @@
           xl="3"
         >
 
-        <router-link :to="data.chain_name" v-if="data.type == 'mainnet'">
+        <router-link :to="data.chain_name">
             <b-card
               v-if="data"
               class="earnings-card text-left"
@@ -256,10 +256,10 @@ export default {
   },
   computed: {
     mainnets() {
-      return this.chains.filter(chain => chain.type == 'mainnet')
+      return this.chains.filter(chain => chain.type === 'mainnet')
     },
     testnets() {
-      return this.chains.filter(chain => chain.type == 'testnet')
+      return this.chains.filter(chain => chain.type === 'testnet')
     },
     imgUrl() {
       if (store.state.appConfig.layout.skin === 'dark') {
