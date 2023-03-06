@@ -22,7 +22,7 @@
     <div>
       <b-row class="match-height">
         <b-col
-          v-for="(data,index) in chains.filter(chain.type === 'mainnet')"
+          v-for="(data,index) in chains.filter(chain => chain.type === 'mainnet')"
           :key="index"
           v-observe-visibility="(visible) => visibilityChanged(visible, data)"
           sm="6"
@@ -121,7 +121,7 @@
     <div>
       <b-row class="match-height">
         <b-col
-          v-for="(data,index) in chains.filter(chain.type === 'testnet')"
+          v-for="(data,index) in chains.filter(chain => chain.type === 'testnet')"
           :key="index"
           v-observe-visibility="(visible) => visibilityChanged(visible, data)"
           sm="6"
