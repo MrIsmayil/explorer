@@ -255,17 +255,12 @@ export default {
     }
   },
   computed: {
-
     mainnets() {
       return this.chains.filter(chain => chain.type == 'mainnet')
-    }
-
+    },
     testnets() {
       return this.chains.filter(chain => chain.type == 'testnet')
-    }
-
-
-
+    },
     imgUrl() {
       if (store.state.appConfig.layout.skin === 'dark') {
         // eslint-disable-next-line vue/no-side-effects-in-computed-properties
