@@ -257,13 +257,29 @@ export default {
   computed: {
     mainnets() {
       const chains = this.$store.state.chains.config
-      const chainsArray = Object.entries(chains)
-      return chainsArray.filter(chain => chain.type === 'mainnet')
+      const chainsArray = []
+
+      chains.keys().forEach(k => {
+        const c = chains(k)
+              
+        if (c.type === 'mainnet')) {
+          chainsArray.push(c)          
+        }
+      })      
+      return chainsArray
     },
     testnets() {
       const chains = this.$store.state.chains.config
-      const chainsArray = Object.entries(chains)
-      return chainsArray.filter(chain => chain.type === 'testnet')
+      const chainsArray = []
+
+      chains.keys().forEach(k => {
+        const c = chains(k)
+              
+        if (c.type === 'testnet')) {
+          chainsArray.push(c)          
+        }
+      })      
+      return chainsArray
     },
     imgUrl() {
       if (store.state.appConfig.layout.skin === 'dark') {
