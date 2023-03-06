@@ -30,6 +30,8 @@
           lg="4"
           xl="3"
         >
+
+        <div v-if="data.type == 'mainnet'">
           <router-link :to="data.chain_name">
             <b-card
               v-if="data"
@@ -97,6 +99,9 @@
               </div>
             </b-card>
           </router-link>
+        
+        </div>
+          
         </b-col>
 
         <!-- no result found -->
@@ -128,6 +133,7 @@
           lg="4"
           xl="3"
         >
+        <div v-if="data.type=='testnet'">
           <router-link :to="data.chain_name">
             <b-card
               v-if="data"
@@ -195,6 +201,8 @@
               </div>
             </b-card>
           </router-link>
+        </div>
+          
         </b-col>
 
         <!-- no result found -->
