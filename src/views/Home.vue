@@ -257,12 +257,12 @@ export default {
   computed: {
     mainnets() {
       const chains = this.$store.state.chains.config
-      const chainsArray = Array.from(chains)
+      const chainsArray = Object.entries(chains)
       return chainsArray.filter(chain => chain.type === 'mainnet')
     },
     testnets() {
       const chains = this.$store.state.chains.config
-      const chainsArray = Array.from(chains)
+      const chainsArray = Object.entries(chains)
       return chainsArray.filter(chain => chain.type === 'testnet')
     },
     imgUrl() {
