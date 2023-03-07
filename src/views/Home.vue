@@ -257,23 +257,23 @@ export default {
   computed: {
     mainnets() {
       const chains = this.$store.state.chains.config
-      const chainsArray = []
-      Object.entries(chains).forEach(e => {
-        if (e.type === 'mainnet') {
-          chainsArray.push(e)
-        }
-      })
-      return chainsArray
+      const chainsArray = [...chains]
+      // Object.entries(chains).forEach(e => {
+      //   if (e.type === 'mainnet') {
+      //     chainsArray.push(e)
+      //   }
+      // })
+      return chainsArray.filter(chain => chain.type === 'mainnet')
     },
     testnets() {
       const chains = this.$store.state.chains.config
-      const chainsArray = []
-      Object.entries(chains).forEach(e => {
-        if (e.type === 'testnet') {
-          chainsArray.push(e)
-        }
-      })
-      return chainsArray
+      const chainsArray = [...chains]
+      // Object.entries(chains).forEach(e => {
+      //   if (e.type === 'testnet') {
+      //     chainsArray.push(e)
+      //   }
+      // })
+      return chainsArray.filter(chain => chain.type === 'testnet')
     },
     imgUrl() {
       if (store.state.appConfig.layout.skin === 'dark') {
